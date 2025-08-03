@@ -1,0 +1,30 @@
+import React, { useState } from 'react';
+import { AuthProvider, useAuth } from './context/AuthContext';
+import LoginForm from './components/Auth/LoginForm';
+import SignupForm from './components/Auth/SignupForm';
+import Dashboard from './components/Dashboard/Dashboard';
+
+const AuthWrapper: React.FC = () => {
+  const [isLogin, setIsLogin] = useState(true);
+  const { user } = useAuth();
+
+  if (user) {
+    return <Dashboard />;
+  }
+
+  return isLogin ? (
+    <LoginForm onToggleForm={() => setIsLogin(false)} />
+  ) : (
+    <SignupForm onToggleForm={() => setIsLogin(true)} />
+  );
+};
+
+function App() {
+  return (
+    <AuthProvider>
+      <AuthWrapper />
+    </AuthProvider>
+  );
+}
+
+export default App;
