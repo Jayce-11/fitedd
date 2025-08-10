@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
-import { Calendar, Flame, Target, TrendingUp, LogOut, Dumbbell, List, User, Download, Share2 } from 'lucide-react';
+import { Calendar, Flame, Target, TrendingUp, LogOut, Dumbbell, List, User, Download, Share2, Brain } from 'lucide-react';
 import ExerciseLibrary from '../Exercise/ExerciseLibrary';
 import UserProfile from './UserProfile';
+import MentalHealthPage from '../MentalHealth/MentalHealthPage';
 
 const Dashboard: React.FC = () => {
   const { user, logout } = useAuth();
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'exercises' | 'profile'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'exercises' | 'profile' | 'mental-health'>('dashboard');
 
   if (!user) return null;
 
@@ -43,6 +44,8 @@ const Dashboard: React.FC = () => {
         return <ExerciseLibrary />;
       case 'profile':
         return <UserProfile />;
+      case 'mental-health':
+        return <MentalHealthPage />;
       default:
         return (
           <div className="space-y-6">
@@ -155,6 +158,13 @@ const Dashboard: React.FC = () => {
                   <span className="font-medium text-green-900">View Profile</span>
                 </button>
                 <button
+                  onClick={() => setActiveTab('mental-health')}
+                  className="flex items-center space-x-3 p-4 bg-pink-50 rounded-lg hover:bg-pink-100 transition-colors"
+                >
+                  <Brain className="w-6 h-6 text-pink-600" />
+                  <span className="font-medium text-pink-900">Mental Wellness</span>
+                </button>
+                <button
                   onClick={handleShareProgress}
                   className="flex items-center space-x-3 p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors"
                 >
@@ -220,6 +230,16 @@ const Dashboard: React.FC = () => {
                 >
                   Profile
                 </button>
+                <button
+                  onClick={() => setActiveTab('mental-health')}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    activeTab === 'mental-health' 
+                      ? 'bg-blue-100 text-blue-700' 
+                      : 'text-gray-500 hover:text-gray-700'
+                  }`}
+                >
+                  Mental Health
+                </button>
               </div>
             </div>
 
@@ -271,6 +291,17 @@ const Dashboard: React.FC = () => {
             >
               <User className="w-4 h-4" />
               <span>Profile</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('mental-health')}
+              className={`flex-1 flex items-center justify-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                activeTab === 'mental-health' 
+                  ? 'bg-blue-100 text-blue-700' 
+                  : 'text-gray-500 hover:text-gray-700'
+              }`}
+            >
+              <Brain className="w-4 h-4" />
+              <span>Wellness</span>
             </button>
           </div>
         </div>
