@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { AuthProvider, useAuth } from './context/AuthContext';
+import { ThemeProvider } from './context/ThemeContext';
 import LoginForm from './components/Auth/LoginForm';
 import SignupForm from './components/Auth/SignupForm';
 import Dashboard from './components/Dashboard/Dashboard';
@@ -21,9 +22,11 @@ const AuthWrapper: React.FC = () => {
 
 function App() {
   return (
-    <AuthProvider>
-      <AuthWrapper />
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <AuthWrapper />
+      </AuthProvider>
+    </ThemeProvider>
   );
 }
 

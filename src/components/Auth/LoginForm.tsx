@@ -38,19 +38,19 @@ const LoginForm: React.FC<LoginFormProps> = ({ onToggleForm }) => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 flex items-center justify-center p-4">
-      <div className="bg-white rounded-2xl shadow-xl w-full max-w-md p-8">
+    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-indigo-100 dark:from-gray-900 dark:to-gray-800 flex items-center justify-center p-4 transition-colors">
+      <div className="bg-white dark:bg-gray-800 rounded-2xl shadow-xl w-full max-w-md p-8">
         <div className="text-center mb-8">
           <div className="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
             <LogIn className="w-8 h-8 text-white" />
           </div>
-          <h1 className="text-3xl font-bold text-gray-900">Welcome to FitEd</h1>
-          <p className="text-gray-600 mt-2">Your student fitness companion</p>
+          <h1 className="text-3xl font-bold text-gray-900 dark:text-white">Welcome to FitEd</h1>
+          <p className="text-gray-600 dark:text-gray-400 mt-2">Your student fitness companion</p>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-6">
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Email Address
             </label>
             <div className="relative">
@@ -59,7 +59,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onToggleForm }) => {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                className="w-full pl-10 pr-4 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                 placeholder="Enter your email"
                 required
               />
@@ -67,7 +67,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onToggleForm }) => {
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-gray-700 mb-2">
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
               Password
             </label>
             <div className="relative">
@@ -76,14 +76,14 @@ const LoginForm: React.FC<LoginFormProps> = ({ onToggleForm }) => {
                 type={showPassword ? 'text' : 'password'}
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full pl-10 pr-12 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                className="w-full pl-10 pr-12 py-3 border border-gray-300 dark:border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
                 placeholder="Enter your password"
                 required
               />
               <button
                 type="button"
                 onClick={() => setShowPassword(!showPassword)}
-                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600"
+                className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 dark:hover:text-gray-300"
               >
                 {showPassword ? <EyeOff className="w-5 h-5" /> : <Eye className="w-5 h-5" />}
               </button>
@@ -91,7 +91,7 @@ const LoginForm: React.FC<LoginFormProps> = ({ onToggleForm }) => {
           </div>
 
           {error && (
-            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 text-red-700 dark:text-red-400 px-4 py-3 rounded-lg">
               {error}
             </div>
           )}
@@ -106,36 +106,36 @@ const LoginForm: React.FC<LoginFormProps> = ({ onToggleForm }) => {
         </form>
 
         <div className="mt-6">
-          <div className="text-center text-sm text-gray-600 mb-4">
+          <div className="text-center text-sm text-gray-600 dark:text-gray-400 mb-4">
             Try Demo Accounts (password: password123)
           </div>
           <div className="space-y-2">
             <button
               onClick={() => handleDemoLogin('john.doe@student.edu')}
-              className="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors text-sm"
+              className="w-full text-left p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors text-sm"
             >
-              <div className="font-medium">John Doe (Beginner)</div>
-              <div className="text-gray-600">john.doe@student.edu</div>
+              <div className="font-medium text-gray-900 dark:text-white">John Doe (Beginner)</div>
+              <div className="text-gray-600 dark:text-gray-400">john.doe@student.edu</div>
             </button>
             <button
               onClick={() => handleDemoLogin('sarah.wilson@student.edu')}
-              className="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors text-sm"
+              className="w-full text-left p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors text-sm"
             >
-              <div className="font-medium">Sarah Wilson (Intermediate)</div>
-              <div className="text-gray-600">sarah.wilson@student.edu</div>
+              <div className="font-medium text-gray-900 dark:text-white">Sarah Wilson (Intermediate)</div>
+              <div className="text-gray-600 dark:text-gray-400">sarah.wilson@student.edu</div>
             </button>
             <button
               onClick={() => handleDemoLogin('mike.chen@student.edu')}
-              className="w-full text-left p-3 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors text-sm"
+              className="w-full text-left p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors text-sm"
             >
-              <div className="font-medium">Mike Chen (Advanced)</div>
-              <div className="text-gray-600">mike.chen@student.edu</div>
+              <div className="font-medium text-gray-900 dark:text-white">Mike Chen (Advanced)</div>
+              <div className="text-gray-600 dark:text-gray-400">mike.chen@student.edu</div>
             </button>
           </div>
         </div>
 
         <div className="text-center mt-6">
-          <span className="text-gray-600">Don't have an account? </span>
+          <span className="text-gray-600 dark:text-gray-400">Don't have an account? </span>
           <button
             onClick={onToggleForm}
             className="text-blue-600 font-semibold hover:text-blue-700 transition-colors"
