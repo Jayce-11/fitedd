@@ -1,16 +1,17 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useTheme } from '../../context/ThemeContext';
-import { Calendar, Flame, Target, TrendingUp, LogOut, Dumbbell, List, User, Download, Share2, Brain, Calculator, Moon, Sun } from 'lucide-react';
+import { Calendar, Flame, Target, TrendingUp, LogOut, Dumbbell, List, User, Download, Share2, Brain, Calculator, Moon, Sun, BarChart3 } from 'lucide-react';
 import ExerciseLibrary from '../Exercise/ExerciseLibrary';
 import UserProfile from './UserProfile';
 import MentalHealthPage from '../MentalHealth/MentalHealthPage';
 import BMICalculator from '../BMI/BMICalculator';
+import AnalyticsPage from '../Analytics/AnalyticsPage';
 
 const Dashboard: React.FC = () => {
   const { user, logout } = useAuth();
   const { isDarkMode, toggleDarkMode } = useTheme();
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'exercises' | 'profile' | 'mental-health' | 'bmi-calculator'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'exercises' | 'profile' | 'mental-health' | 'bmi-calculator' | 'analytics'>('dashboard');
 
   if (!user) return null;
 
@@ -51,6 +52,8 @@ const Dashboard: React.FC = () => {
         return <MentalHealthPage />;
       case 'bmi-calculator':
         return <BMICalculator />;
+      case 'analytics':
+        return <AnalyticsPage />;
       default:
         return (
           <div className="space-y-6">
@@ -147,7 +150,7 @@ const Dashboard: React.FC = () => {
             {/* Quick Actions */}
             <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border dark:border-gray-700">
               <h2 className="text-xl font-bold mb-4 text-gray-900 dark:text-white">Quick Actions</h2>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-6 gap-4">
                 <button
                   onClick={() => setActiveTab('exercises')}
                   className="flex items-center space-x-3 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors"
@@ -182,6 +185,13 @@ const Dashboard: React.FC = () => {
                 >
                   <Share2 className="w-6 h-6 text-purple-600" />
                   <span className="font-medium text-purple-900 dark:text-purple-300">Share Progress</span>
+                </button>
+                <button
+                  onClick={() => setActiveTab('analytics')}
+                  className="flex items-center space-x-3 p-4 bg-indigo-50 dark:bg-indigo-900/20 rounded-lg hover:bg-indigo-100 dark:hover:bg-indigo-900/30 transition-colors"
+                >
+                  <BarChart3 className="w-6 h-6 text-indigo-600" />
+                  <span className="font-medium text-indigo-900 dark:text-indigo-300">View Analytics</span>
                 </button>
               </div>
             </div>
@@ -254,6 +264,16 @@ const Dashboard: React.FC = () => {
                   }`}
                 >
                   BMI Calculator
+                </button>
+                <button
+                  onClick={() => setActiveTab('analytics')}
+                  className={`px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                    activeTab === 'analytics' 
+                      ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300' 
+                      : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
+                  }`}
+                >
+                  Analytics
                 </button>
               </div>
             </div>
@@ -335,6 +355,17 @@ const Dashboard: React.FC = () => {
             >
               <Calculator className="w-4 h-4" />
               <span>BMI</span>
+            </button>
+            <button
+              onClick={() => setActiveTab('analytics')}
+              className={`flex-1 flex items-center justify-center space-x-1 px-3 py-2 rounded-md text-sm font-medium transition-colors ${
+                activeTab === 'analytics' 
+                  ? 'bg-blue-100 dark:bg-blue-900/50 text-blue-700 dark:text-blue-300' 
+                  : 'text-gray-500 dark:text-gray-400 hover:text-gray-700 dark:hover:text-gray-300'
+              }`}
+            >
+              <BarChart3 className="w-4 h-4" />
+              <span>Analytics</span>
             </button>
           </div>
         </div>
