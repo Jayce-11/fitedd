@@ -227,49 +227,49 @@ const MentalHealthPage: React.FC = () => {
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border dark:border-gray-700">
+      <div className="bg-white rounded-xl p-6 shadow-sm border">
         <h2 className="text-xl font-bold mb-4 flex items-center">
           <Target className="w-6 h-6 text-green-500 mr-2" />
-          <span className="text-gray-900 dark:text-white">Quick Wellness Actions</span>
+          Quick Wellness Actions
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <button className="flex items-center space-x-3 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors border border-blue-100 dark:border-blue-800">
+          <button className="flex items-center space-x-3 p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
             <Clock className="w-6 h-6 text-blue-600" />
             <div className="text-left">
-              <p className="font-medium text-blue-900 dark:text-blue-300">5-Minute Meditation</p>
-              <p className="text-sm text-blue-700 dark:text-blue-400">Quick mindfulness session</p>
+              <p className="font-medium text-blue-900">5-Minute Meditation</p>
+              <p className="text-sm text-blue-700">Quick mindfulness session</p>
             </div>
           </button>
           
-          <button className="flex items-center space-x-3 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors border border-green-100 dark:border-green-800">
+          <button className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
             <Music className="w-6 h-6 text-green-600" />
             <div className="text-left">
-              <p className="font-medium text-green-900 dark:text-green-300">Calming Sounds</p>
-              <p className="text-sm text-green-700 dark:text-green-400">Nature sounds & music</p>
+              <p className="font-medium text-green-900">Calming Sounds</p>
+              <p className="text-sm text-green-700">Nature sounds & music</p>
             </div>
           </button>
           
-          <button className="flex items-center space-x-3 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border border-purple-100 dark:border-purple-800">
+          <button className="flex items-center space-x-3 p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
             <Book className="w-6 h-6 text-purple-600" />
             <div className="text-left">
-              <p className="font-medium text-purple-900 dark:text-purple-300">Gratitude Journal</p>
-              <p className="text-sm text-purple-700 dark:text-purple-400">Write 3 things you're grateful for</p>
+              <p className="font-medium text-purple-900">Gratitude Journal</p>
+              <p className="text-sm text-purple-700">Write 3 things you're grateful for</p>
             </div>
           </button>
         </div>
       </div>
 
       {/* Mental Health Resources */}
-      <div className="bg-white rounded-xl p-6 shadow-sm border">
+      <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border dark:border-gray-700">
         <div className="flex items-center justify-between mb-4">
           <h2 className="text-xl font-bold flex items-center">
             <Shield className="w-6 h-6 text-red-500 mr-2" />
-            Support Resources
+            <span className="text-gray-900 dark:text-white">Support Resources</span>
           </h2>
           <button
             onClick={() => setShowResources(!showResources)}
-            className="text-blue-600 hover:text-blue-700 font-medium"
+            className="text-blue-600 dark:text-blue-400 hover:text-blue-700 dark:hover:text-blue-300 font-medium"
           >
             {showResources ? 'Hide' : 'Show'} Resources
           </button>
@@ -277,16 +277,16 @@ const MentalHealthPage: React.FC = () => {
         
         {showResources && (
           <div className="space-y-4">
-            <div className="bg-red-50 border border-red-200 rounded-lg p-4">
-              <h3 className="font-semibold text-red-900 mb-3">Crisis Support</h3>
+            <div className="bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-lg p-4">
+              <h3 className="font-semibold text-red-900 dark:text-red-300 mb-3">Crisis Support</h3>
               <div className="space-y-3">
                 {emergencyResources.map((resource, index) => (
                   <div key={index} className="flex items-start space-x-3">
-                    <Phone className="w-5 h-5 text-red-600 mt-0.5" />
+                    <Phone className="w-5 h-5 text-red-600 dark:text-red-400 mt-0.5" />
                     <div>
-                      <p className="font-medium text-red-900">{resource.name}</p>
-                      <p className="text-red-700 font-mono">{resource.number}</p>
-                      <p className="text-sm text-red-600">{resource.description}</p>
+                      <p className="font-medium text-red-900 dark:text-red-300">{resource.name}</p>
+                      <p className="text-red-700 dark:text-red-400 font-mono">{resource.number}</p>
+                      <p className="text-sm text-red-600 dark:text-red-400">{resource.description}</p>
                     </div>
                   </div>
                 ))}
@@ -315,35 +315,35 @@ const MentalHealthPage: React.FC = () => {
       </div>
 
       {/* Wellness Stats */}
-      <div className="bg-white rounded-xl p-6 shadow-sm border">
+      <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border dark:border-gray-700">
         <h2 className="text-xl font-bold mb-4 flex items-center">
           <Award className="w-6 h-6 text-yellow-500 mr-2" />
-          Your Wellness Journey
+          <span className="text-gray-900 dark:text-white">Your Wellness Journey</span>
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <div className="text-center p-4 bg-green-50 rounded-lg">
-            <div className="bg-green-100 p-3 rounded-full w-fit mx-auto mb-3">
+          <div className="text-center p-4 bg-green-50 dark:bg-green-900/20 rounded-lg border border-green-100 dark:border-green-800">
+            <div className="bg-green-100 dark:bg-green-900/50 p-3 rounded-full w-fit mx-auto mb-3">
               <Calendar className="w-8 h-8 text-green-600" />
             </div>
             <p className="text-2xl font-bold text-green-600">7</p>
-            <p className="text-sm text-gray-600">Days of mood tracking</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Days of mood tracking</p>
           </div>
           
-          <div className="text-center p-4 bg-blue-50 rounded-lg">
-            <div className="bg-blue-100 p-3 rounded-full w-fit mx-auto mb-3">
+          <div className="text-center p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg border border-blue-100 dark:border-blue-800">
+            <div className="bg-blue-100 dark:bg-blue-900/50 p-3 rounded-full w-fit mx-auto mb-3">
               <Smile className="w-8 h-8 text-blue-600" />
             </div>
             <p className="text-2xl font-bold text-blue-600">4.2/5</p>
-            <p className="text-sm text-gray-600">Average mood score</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Average mood score</p>
           </div>
           
-          <div className="text-center p-4 bg-purple-50 rounded-lg">
-            <div className="bg-purple-100 p-3 rounded-full w-fit mx-auto mb-3">
+          <div className="text-center p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg border border-purple-100 dark:border-purple-800">
+            <div className="bg-purple-100 dark:bg-purple-900/50 p-3 rounded-full w-fit mx-auto mb-3">
               <Target className="w-8 h-8 text-purple-600" />
             </div>
             <p className="text-2xl font-bold text-purple-600">12</p>
-            <p className="text-sm text-gray-600">Wellness activities completed</p>
+            <p className="text-sm text-gray-600 dark:text-gray-400">Wellness activities completed</p>
           </div>
         </div>
       </div>

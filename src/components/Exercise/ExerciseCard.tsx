@@ -51,7 +51,7 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise }) => {
   };
 
   return (
-    <div className="bg-white rounded-xl shadow-sm border overflow-hidden hover:shadow-md transition-shadow">
+    <div className="bg-white dark:bg-gray-800 rounded-xl shadow-sm border dark:border-gray-700 overflow-hidden hover:shadow-md transition-shadow">
       {/* Exercise Image */}
       <div className="relative h-48 overflow-hidden">
         <img 
@@ -76,11 +76,12 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise }) => {
         <div className="flex items-start justify-between mb-3">
           <div>
             <h3 className="text-xl font-bold text-gray-900 mb-1">{exercise.name}</h3>
-            <p className="text-sm text-gray-600">{exercise.category}</p>
+            <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-1">{exercise.name}</h3>
+            <p className="text-sm text-gray-600 dark:text-gray-400">{exercise.category}</p>
           </div>
         </div>
 
-        <p className="text-gray-700 mb-4 line-clamp-2">{exercise.description}</p>
+        <p className="text-gray-700 dark:text-gray-300 mb-4 line-clamp-2">{exercise.description}</p>
 
         {/* Exercise Stats */}
         <div className="grid grid-cols-3 gap-4 mb-4">
@@ -89,30 +90,31 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise }) => {
               <Clock className="w-4 h-4 text-blue-600 mr-1" />
             </div>
             <p className="text-sm font-semibold text-gray-900">{exercise.duration} min</p>
-            <p className="text-xs text-gray-600">Duration</p>
+            <p className="text-sm font-semibold text-gray-900 dark:text-white">{exercise.duration} min</p>
+            <p className="text-xs text-gray-600 dark:text-gray-400">Duration</p>
           </div>
           <div className="text-center">
             <div className="flex items-center justify-center mb-1">
               <Flame className="w-4 h-4 text-orange-600 mr-1" />
             </div>
-            <p className="text-sm font-semibold text-gray-900">{caloriesBurned}</p>
-            <p className="text-xs text-gray-600">Calories</p>
+            <p className="text-sm font-semibold text-gray-900 dark:text-white">{caloriesBurned}</p>
+            <p className="text-xs text-gray-600 dark:text-gray-400">Calories</p>
           </div>
           <div className="text-center">
             <div className="flex items-center justify-center mb-1">
               <Target className="w-4 h-4 text-green-600 mr-1" />
             </div>
-            <p className="text-sm font-semibold text-gray-900">{exercise.reps}x{exercise.sets}</p>
-            <p className="text-xs text-gray-600">Reps/Sets</p>
+            <p className="text-sm font-semibold text-gray-900 dark:text-white">{exercise.reps}x{exercise.sets}</p>
+            <p className="text-xs text-gray-600 dark:text-gray-400">Reps/Sets</p>
           </div>
         </div>
 
         {/* Target Muscles */}
         <div className="mb-4">
-          <p className="text-sm font-medium text-gray-700 mb-2">Target Muscles:</p>
+          <p className="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Target Muscles:</p>
           <div className="flex flex-wrap gap-2">
             {exercise.targetMuscles.map((muscle, index) => (
-              <span key={index} className="px-2 py-1 bg-blue-50 text-blue-700 text-xs rounded-md">
+              <span key={index} className="px-2 py-1 bg-blue-50 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs rounded-md border border-blue-100 dark:border-blue-800">
                 {muscle}
               </span>
             ))}
@@ -123,14 +125,14 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise }) => {
         <div className="flex space-x-2">
           <button
             onClick={() => setShowDetails(!showDetails)}
-            className="flex-1 flex items-center justify-center space-x-1 px-3 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-sm"
+            className="flex-1 flex items-center justify-center space-x-1 px-3 py-2 bg-gray-100 dark:bg-gray-700 text-gray-700 dark:text-gray-300 rounded-lg hover:bg-gray-200 dark:hover:bg-gray-600 transition-colors text-sm"
           >
             <Play className="w-4 h-4" />
             <span>Details</span>
           </button>
           <button
             onClick={handleShare}
-            className="px-3 py-2 bg-blue-50 text-blue-600 rounded-lg hover:bg-blue-100 transition-colors"
+            className="px-3 py-2 bg-blue-50 dark:bg-blue-900/30 text-blue-600 dark:text-blue-400 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/50 transition-colors border border-blue-100 dark:border-blue-800"
             title="Share Exercise"
           >
             <Share2 className="w-4 h-4" />
@@ -139,8 +141,8 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise }) => {
             onClick={() => setIsFavorited(!isFavorited)}
             className={`px-3 py-2 rounded-lg transition-colors ${
               isFavorited 
-                ? 'bg-red-50 text-red-600 hover:bg-red-100' 
-                : 'bg-gray-50 text-gray-600 hover:bg-gray-100'
+                ? 'bg-red-50 dark:bg-red-900/30 text-red-600 dark:text-red-400 hover:bg-red-100 dark:hover:bg-red-900/50 border border-red-100 dark:border-red-800' 
+                : 'bg-gray-50 dark:bg-gray-700 text-gray-600 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-600 border border-gray-100 dark:border-gray-600'
             }`}
             title="Bookmark Exercise"
           >
@@ -171,12 +173,12 @@ const ExerciseCard: React.FC<ExerciseCardProps> = ({ exercise }) => {
 
         {/* Exercise Instructions */}
         {showDetails && (
-          <div className="mt-4 p-4 bg-gray-50 rounded-lg">
-            <h4 className="font-semibold text-gray-900 mb-3">Instructions:</h4>
-            <ol className="space-y-2 text-sm text-gray-700">
+          <div className="mt-4 p-4 bg-gray-50 dark:bg-gray-700 rounded-lg border border-gray-100 dark:border-gray-600">
+            <h4 className="font-semibold text-gray-900 dark:text-white mb-3">Instructions:</h4>
+            <ol className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
               {exercise.instructions.map((instruction, index) => (
                 <li key={index} className="flex">
-                  <span className="font-medium text-blue-600 mr-2">{index + 1}.</span>
+                  <span className="font-medium text-blue-600 dark:text-blue-400 mr-2">{index + 1}.</span>
                   <span>{instruction}</span>
                 </li>
               ))}
