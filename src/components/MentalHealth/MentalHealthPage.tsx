@@ -133,10 +133,10 @@ const MentalHealthPage: React.FC = () => {
       </div>
 
       {/* Mood Tracker */}
-      <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border dark:border-gray-700">
+      <div className="bg-white rounded-xl p-6 shadow-sm border">
         <h2 className="text-xl font-bold mb-4 flex items-center">
           <Heart className="w-6 h-6 text-red-500 mr-2" />
-          <span className="text-gray-900 dark:text-white">How are you feeling today?</span>
+          How are you feeling today?
         </h2>
         
         <div className="grid grid-cols-5 gap-3 mb-4">
@@ -147,12 +147,12 @@ const MentalHealthPage: React.FC = () => {
               className={`p-4 rounded-lg border-2 transition-all ${
                 selectedMood === mood 
                   ? getMoodColor(mood) 
-                  : 'border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 bg-white dark:bg-gray-700'
+                  : 'border-gray-200 hover:border-gray-300'
               }`}
             >
               <div className="flex flex-col items-center space-y-2">
                 {getMoodIcon(mood, 'w-8 h-8')}
-                <span className="text-sm font-medium capitalize text-gray-900 dark:text-white">{mood}</span>
+                <span className="text-sm font-medium capitalize">{mood}</span>
               </div>
             </button>
           ))}
@@ -227,34 +227,34 @@ const MentalHealthPage: React.FC = () => {
       </div>
 
       {/* Quick Actions */}
-      <div className="bg-white rounded-xl p-6 shadow-sm border">
+      <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border dark:border-gray-700">
         <h2 className="text-xl font-bold mb-4 flex items-center">
           <Target className="w-6 h-6 text-green-500 mr-2" />
-          Quick Wellness Actions
+          <span className="text-gray-900 dark:text-white">Quick Wellness Actions</span>
         </h2>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          <button className="flex items-center space-x-3 p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors">
+          <button className="flex items-center space-x-3 p-4 bg-blue-50 dark:bg-blue-900/20 rounded-lg hover:bg-blue-100 dark:hover:bg-blue-900/30 transition-colors border border-blue-100 dark:border-blue-800">
             <Clock className="w-6 h-6 text-blue-600" />
             <div className="text-left">
-              <p className="font-medium text-blue-900">5-Minute Meditation</p>
-              <p className="text-sm text-blue-700">Quick mindfulness session</p>
+              <p className="font-medium text-blue-900 dark:text-blue-300">5-Minute Meditation</p>
+              <p className="text-sm text-blue-700 dark:text-blue-400">Quick mindfulness session</p>
             </div>
           </button>
           
-          <button className="flex items-center space-x-3 p-4 bg-green-50 rounded-lg hover:bg-green-100 transition-colors">
+          <button className="flex items-center space-x-3 p-4 bg-green-50 dark:bg-green-900/20 rounded-lg hover:bg-green-100 dark:hover:bg-green-900/30 transition-colors border border-green-100 dark:border-green-800">
             <Music className="w-6 h-6 text-green-600" />
             <div className="text-left">
-              <p className="font-medium text-green-900">Calming Sounds</p>
-              <p className="text-sm text-green-700">Nature sounds & music</p>
+              <p className="font-medium text-green-900 dark:text-green-300">Calming Sounds</p>
+              <p className="text-sm text-green-700 dark:text-green-400">Nature sounds & music</p>
             </div>
           </button>
           
-          <button className="flex items-center space-x-3 p-4 bg-purple-50 rounded-lg hover:bg-purple-100 transition-colors">
+          <button className="flex items-center space-x-3 p-4 bg-purple-50 dark:bg-purple-900/20 rounded-lg hover:bg-purple-100 dark:hover:bg-purple-900/30 transition-colors border border-purple-100 dark:border-purple-800">
             <Book className="w-6 h-6 text-purple-600" />
             <div className="text-left">
-              <p className="font-medium text-purple-900">Gratitude Journal</p>
-              <p className="text-sm text-purple-700">Write 3 things you're grateful for</p>
+              <p className="font-medium text-purple-900 dark:text-purple-300">Gratitude Journal</p>
+              <p className="text-sm text-purple-700 dark:text-purple-400">Write 3 things you're grateful for</p>
             </div>
           </button>
         </div>
