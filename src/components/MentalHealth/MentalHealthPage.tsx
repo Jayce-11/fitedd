@@ -133,10 +133,10 @@ const MentalHealthPage: React.FC = () => {
       </div>
 
       {/* Mood Tracker */}
-      <div className="bg-white rounded-xl p-6 shadow-sm border">
+      <div className="bg-white dark:bg-gray-800 rounded-xl p-6 shadow-sm border dark:border-gray-700">
         <h2 className="text-xl font-bold mb-4 flex items-center">
           <Heart className="w-6 h-6 text-red-500 mr-2" />
-          How are you feeling today?
+          <span className="text-gray-900 dark:text-white">How are you feeling today?</span>
         </h2>
         
         <div className="grid grid-cols-5 gap-3 mb-4">
@@ -147,12 +147,12 @@ const MentalHealthPage: React.FC = () => {
               className={`p-4 rounded-lg border-2 transition-all ${
                 selectedMood === mood 
                   ? getMoodColor(mood) 
-                  : 'border-gray-200 hover:border-gray-300'
+                  : 'border-gray-200 dark:border-gray-600 hover:border-gray-300 dark:hover:border-gray-500 bg-white dark:bg-gray-700'
               }`}
             >
               <div className="flex flex-col items-center space-y-2">
                 {getMoodIcon(mood, 'w-8 h-8')}
-                <span className="text-sm font-medium capitalize">{mood}</span>
+                <span className="text-sm font-medium capitalize text-gray-900 dark:text-white">{mood}</span>
               </div>
             </button>
           ))}
